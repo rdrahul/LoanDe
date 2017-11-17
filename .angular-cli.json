@@ -9,7 +9,10 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "sw.js",
+        "service-worker.js",
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -52,6 +55,7 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {
+    }
   }
 }

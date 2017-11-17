@@ -1,0 +1,19 @@
+<div class="container content">
+
+  <div class="">
+      <mat-card  class="item clearfix" *ngFor="let b of people" routerLink = "/details" >
+          
+          <mat-card-content>
+              <img class="avatar" src="/assets/images.png" alt="{{b.name}}">
+              <h3 >
+                  {{b.name}}
+                </h3>
+          </mat-card-content>
+          
+      </mat-card>
+  </div>
+</div>
+
+    
+
+

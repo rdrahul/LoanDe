@@ -1,0 +1,30 @@
+
+
+.avatar{
+	width : 50px;
+	height: 50px;
+	float: left;
+}
+
+.item{
+	clear: both;
+	widows: 100%;
+	margin: 10px auto;
+}
+
+.clearfix:after{
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.item h3{
+	margin: 10px 40px;
+	padding: 15px 35px;
+}
+
+@media (max-width: 600px){
+	.mat-card {
+		padding: 10px 16px;
+	}
+}
