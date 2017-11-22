@@ -10,7 +10,18 @@ let BillSchema = new Schema({
         type: String,
         trim: true,
         required: true
-	}, 
+	},
 	
+	created_at : {
+		type : Date,
+		default  : Date.now
+	},
 
+	added_by : {
+		type : Schema.Types.ObjectId,
+		ref : 'User'
+	}
 });
+
+module.exports  = mongoose.model( 'bill' , BillSchema);
+
