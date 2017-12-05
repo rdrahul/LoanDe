@@ -12,7 +12,20 @@ import { AppRoutingModule } from "./app.routinig.module";
 
 import { UserService } from "./services/user.service";
 import { SocketService } from "./services/socket.service";
+import { HttpService } from "./services/httpservice.service";
+import { AuthService } from "./services/auth.service";
 
+import { BootstrapGridModule } from 'ng2-bootstrap-grid';
+
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+let services = [
+  HttpService,
+  UserService,
+  SocketService , 
+  AuthService
+
+]
 
 @NgModule({
   declarations: [
@@ -24,11 +37,13 @@ import { SocketService } from "./services/socket.service";
     MatToolbarModule,
     MatButtonModule,
     HttpModule,
+    BrowserAnimationsModule,
+    BootstrapGridModule,
     MatProgressBarModule,
     AppShellModule.runtime(),
     AppRoutingModule
   ],
-  providers: [ UserService, SocketService ],
+  providers: [...services ],
   bootstrap: [AppComponent ]
 })
 export class AppModule { }

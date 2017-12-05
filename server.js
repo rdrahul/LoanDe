@@ -6,6 +6,7 @@ const
 	userRoute = require('./ServerSide/routes/users.route'),
 	bodyParser = require('body-parser'),
 	server = require('http').createServer(app),
+	expressConfig = require('./ServerSide/config/express'),
 	socket = require('socket.io');
 
 const port = 3000;
@@ -13,20 +14,22 @@ const ConnectionString = "mongodb://127.0.0.1/loan-de";
 
 app.use( express.static( path.join(__dirname , 'dist')) );
 
+
+
 //set up database
-mongoose.connect(ConnectionString, {}, (err) => {
-	if (err) return console.log("[Error]",err);
-});
+// mongoose.connect(ConnectionString, {}, (err) => {
+// 	if (err) return console.log("[Error]",err);
+// });
 
 
-let db = mongoose.connection;
-db.on('error', () => {
-	throw new Error("Unable to connect to database");
-});
+// let db = mongoose.connection;
+// db.on('error', () => {
+// 	throw new Error("Unable to connect to database");
+// });
 
-db.on('connection', () => {
-	console.log("Connection to database successfull");
-});
+// db.on('connection', () => {
+// 	console.log("Connection to database successfull");
+// });
 
 
 //set up body parse
@@ -55,8 +58,8 @@ io.on('connection' , function( socket){
 
 
 //set up route
-initializeSocket(io );
-userRoute( app , io  );
+//initializeSocket(io );
+expressConfig( app , io  );
 
 app.all('*', (req, res) => {
 	console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);

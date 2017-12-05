@@ -6,7 +6,7 @@ import { Observable  } from "rxjs/Rx" ;
 
 import { ApiUrls } from "../shared/classes/apiurls";
 import 'rxjs';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {

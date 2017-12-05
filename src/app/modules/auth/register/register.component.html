@@ -1,0 +1,51 @@
+<bootstrap-grid>
+<div class="container">
+
+
+<container >
+
+  <row>
+    <div class="center">
+      <div class="top">
+        <div class="title" >
+          <h3>Register</h3>
+        </div>
+
+      </div>
+      <div class="bottom">
+        <div class="form" (submit)="register()" >
+          <form [formGroup]="registerForm">
+            <mat-form-field class="full-width" >
+                <input matInput placeholder="Enter your Full name" formControlName="name" name="name" required>
+                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>  -->
+            </mat-form-field>
+            <mat-form-field class="full-width" >
+              <input matInput placeholder="Enter your email" formControlName="email" name="email" required>
+              <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>  -->
+            </mat-form-field>
+            <mat-form-field class="full-width" >
+                <input matInput placeholder="password"  type="password" formControlName="password" name="password" required>
+                <!-- <mat-error *ngIf="!loginForm.controls['email'].valid">{{loginForm.controls['email'].errors}}ere</mat-error>  -->
+            </mat-form-field>
+            <mat-form-field class="full-width" >
+                <input matInput placeholder=" confirm password"  type="password" formControlName="confirm" name="confirm" required>
+                <!-- <mat-error *ngIf="!loginForm.controls['email'].valid">{{loginForm.controls['email'].errors}}ere</mat-error>  -->
+            </mat-form-field>
+
+            <row>
+                <button type="submit" id="btn-login" class="btn middle" [disabled] =" !registerForm.valid"  >
+                    Register
+                </button>
+            </row>            
+            
+            
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </row>
+</container>
+
+</div>
+</bootstrap-grid>

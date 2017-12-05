@@ -1,8 +1,7 @@
 'use strict';
 const
     mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    _ = require('lodash');
+    Schema = mongoose.Schema;
 
 let BillSchema = new Schema({
     

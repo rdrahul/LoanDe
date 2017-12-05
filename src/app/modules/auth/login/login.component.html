@@ -1,0 +1,44 @@
+<bootstrap-grid>
+
+<div class="container content">
+
+
+<container >
+
+  <row>
+    <div class="center">
+      <div class="top">
+        <div class="title" >
+          <h3>Login</h3>
+        </div>
+
+      </div>
+      <div class="bottom">
+        <div class="form" (submit)="login()" >
+          <form [formGroup]="loginForm">
+            <mat-form-field class="full-width" >
+              <input matInput placeholder="Enter your email" formControlName="email" name="email" required>
+              <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>  -->
+            </mat-form-field>
+            <mat-form-field class="full-width" >
+                <input matInput placeholder="password"  type="password" formControlName="password" name="password" required>
+                <!-- <mat-error *ngIf="!loginForm.controls['email'].valid">{{loginForm.controls['email'].errors}}ere</mat-error>  -->
+            </mat-form-field>
+
+            <row>
+                <button type="submit" id="btn-login" class="btn middle" [disabled] =" !loginForm.valid"  >
+                    Login
+                </button>
+            </row>            
+            
+            
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </row>
+</container>
+
+</div>
+</bootstrap-grid>
