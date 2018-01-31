@@ -1,5 +1,7 @@
 const 
-	User = require('../models/user.model');
+	User = require('../models/user.model'),
+	jwtTokenService = require('../utilities/jwttoken.service');
+	;
 
 let GetUsers = (req, res) => {
 
@@ -34,19 +36,11 @@ let UserLogin = (req, res) => {
     User.findOne({ email: userDetails.email }, (err, user) => {
 
 		if (err)
-		return res.status(500).json(err)
+			return res.status(500).json(err);
         
-
         if (!user) return res.status(404).json({message : "User not found"});
-
-
+		
 		userDetails.password = user.hashPassword(userDetails.password);
-
-		console.log("Authenticate", user.authenticate(userDetails.password));
-
-		console.log("UserDetails Password", userDetails.password);
-		console.log("Password", user.password);
-
 		if (userDetails.password === user.password) {
 			try {
 				let token = jwtTokenService.signToken({
@@ -55,8 +49,8 @@ let UserLogin = (req, res) => {
 					expiresIn: '12h'                         
 				});
 
-				let safeUser = user.publicFilter();
-				res.json({ user: safeUser, token: token });
+				
+				res.json({ user: user, token: token });
 
 			} catch (error) {
 				return res.status(500).json({error : error});

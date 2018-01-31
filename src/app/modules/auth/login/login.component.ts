@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { FormGroup, FormControl , Validators , FormBuilder  } from "@angular/forms";
 
 //services
@@ -14,27 +15,27 @@ export class LoginComponent implements OnInit {
 
   loginForm :FormGroup ;
 
-  constructor( private _fb : FormBuilder , private _authService : AuthService ) {
+  constructor(  private _fb : FormBuilder , 
+                private _authService : AuthService,
+                private _router : Router              
+              ) {
     this.loginForm = _fb.group({
       'email' : [null , Validators.compose( [Validators.required , Validators.email] ) ],
       'password':[null , Validators.compose(  [Validators.required , 
                                                   Validators.minLength(4),
                                                   Validators.maxLength(500) ] )]
     });
-
     console.log(this.loginForm);
    }
 
   ngOnInit() {
 
-
   }
 
   login(){
-    
-    
     this._authService.login( this.loginForm.value ) .subscribe( ( response ) => {
-      console.log(response);
+      this._authService.loginUser( response.token );
+      this._router.navigate(['/home']);
     } ,(err) => {
       console.log("err " , err);
       switch( err.status){

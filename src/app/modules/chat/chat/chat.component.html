@@ -1,7 +1,56 @@
-<div class="container content">
+<div class="content">
+
+  <div class="card" >
+    <div class="card-header">
+      <h2> Rahul Dwivedi </h2>
+      <h6>online</h6>
+    </div>
+    <div class="card-content">
+        <div class="chat"  >
+          <ul>
+            <li *ngFor="let message of messages" >
+              {{message}}
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
   
-    <div class="">
+  <div class="" >
+    <div class="card-content">
+      <form class="example-form" [formGroup]="form"  (submit)="formSubmit()">
+
+        <div class="row" >
+          <div class="col-md-11">
+              <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder="send a message" formControlName="inputmessage" name = "inputmessage" ></textarea>
+                </mat-form-field>
+          </div>
+          <div class="col-md-1">
+              <button mat-fab color="primary" type="submit" [disabled] = "!form.valid" >
+                <mat-icon>send</mat-icon>
+              </button>
+          </div>
+
+        </div>
+        
+
+        
+      </form>
+    </div>
+  </div>
+
+
+
+
+  
+
+
+  
+
+  
+    <!-- <div class="">
       <p>Recieved</p>
       <p>{{messageRecieved}}</p>
-    </div>
+    </div> -->
   </div>

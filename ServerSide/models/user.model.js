@@ -2,6 +2,7 @@
 const
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
+    crypto = require('crypto'),
     _ = require('lodash');
 
 let UserSchema = new Schema({

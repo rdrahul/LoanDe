@@ -12,7 +12,7 @@ let MessageSchema = new Schema( {
 		type : Schema.Types.ObjectId,
 		ref : 'User'
 	},
-	by : {
+	to : {
 		type : Schema.Types.ObjectId,
 		ref : 'User'
 	},
