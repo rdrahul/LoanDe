@@ -7,13 +7,18 @@ const
 
 
 /**
- * Create
+ * Creates a new bill
  */
 let CreateBill = (req , res ) => {
 	let user_adding = req.body.userId;
 	let amount = req.body.amount;
 
-	let bill = new Bill( { amount : amount , added_by : user_adding });
+	let bill = new Bill(
+		{
+			amount : amount , 
+			added_by : user_adding 
+		}
+		);
 
 	Bill.create( bill )
 		.exec( (err , response ) => {
